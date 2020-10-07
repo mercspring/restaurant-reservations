@@ -97,14 +97,6 @@
                 
                 newCard.append(resStatCard);
                 $("#reservation-list").append(newCard);
-
-                if (data) {
-                    $(`#table${i}`).show();
-                    $(`#id${i}`).text(data.id);
-                    $(`#name${i}`).text(data.name);
-                    $(`#email${i}`).text(data.email);
-                    $(`#phoneNumber${i}`).text(data.phoneNumber);
-                };
             };
         });
 
