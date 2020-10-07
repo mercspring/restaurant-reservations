@@ -18,28 +18,15 @@ app.use(express.static("public"))
 // Reservations (DATA)
 // =============================================================
 var reservations = [
-  {
-    customerName: "sophia",
-    customerPhone: "9999999999",
-    customerEmail: "sophia@test.com",
-    customerID: 1
-  },
-  {
-    customerName: "mercury",
-    customerPhone: "1111111111",
-    customerEmail: "mercury@test.com",
-    customerID: 2
-  }
+  // {
+  //   customerName: "sophia",
+  //   customerPhone: "9999999999",
+  //   customerEmail: "sophia@test.com",
+  //   customerID: 1
+  // },
 ];
 
-var waitlist = [
-    {
-        customerName: "ann",
-        customerPhone: "55555555555",
-        customerEmail: "ann@test.com",
-        customerID: 3
-    }
-];
+var waitlist = [];
 
 // Routes
 // =============================================================
@@ -80,9 +67,12 @@ app.post("/api/tables", function(req, res) {
 
   if(reservations.length < 5) {
     reservations.push(newTable);
+    return res.send(true);
   }
   else {
-      waitlist.push(newTable)
+      waitlist.push(newTable);
+      return res.send(false);
+
   }
   
   res.json(newTable);
