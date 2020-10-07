@@ -21,10 +21,9 @@
             <hr>
             <div class="row">
                 <div class="col-md-4"></div>
-                <a href="/form"><button class="btn btn-danger btn-lg"><span
-            class="fa fa-credit-card"></span>  Make Reservation</button></a>
-                <a href="/"><button class="btn btn-lg"><span
-              class="fa fa-home"></span></button></a>
+                <a href="/form"><button class="btn btn-danger btn-lg"><span class="fa fa-credit-card"></span> Make
+                        Reservation</button></a>
+                <a href="/"><button class="btn btn-lg"><span class="fa fa-home"></span></button></a>
             </div>
         </div>
         <div class="row">
@@ -66,7 +65,9 @@
         <div class="container">
             <div class="row">
                 <!-- <div class="col-md-6"> -->
+                <a id="clear-btn" href="#"> Clear Reservations </a>
                 <!-- Change the paths to where it's located in the api's object arrays -->
+                <p> | </p>
                 <a href="/api/tables">Current Booked Tables API </a>
                 <!-- </div> -->
                 <p> | </p>
@@ -78,14 +79,24 @@
     </footer>
 
     <script type="text/javascript">
-        $("#search-btn").on("click", function() {
+        $("#clear-btn").on("click", function () {
+            $.ajax({
+                url: '/api/tables',
+                type: 'DELETE',
+            }).then(function(response){
+                console.log(response)
+                $(".card-body").html('')
+                alert("Clearing Tables...")
+            });
+        })
+        $("#search-btn").on("click", function () {
             var searchedCharacter = $("#character-search").val().trim();
 
             // Using a RegEx Pattern to remove spaces from searchedCharacter
             // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
             searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
-            $.get("/api/characters/" + searchedCharacter, function(data) {
+            $.get("/api/characters/" + searchedCharacter, function (data) {
                 console.log(data);
                 if (data) {
                     $("#stats").show();

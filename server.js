@@ -18,12 +18,12 @@ app.use(express.static("public"))
 // Reservations (DATA)
 // =============================================================
 var reservations = [
-  // {
-  //   customerName: "sophia",
-  //   customerPhone: "9999999999",
-  //   customerEmail: "sophia@test.com",
-  //   customerID: 1
-  // },
+  {
+    // customerName: "sophia",
+    // customerPhone: "9999999999",
+    // customerEmail: "sophia@test.com",
+    // customerID: 1
+  },
 ];
 
 var waitlist = [];
@@ -55,6 +55,12 @@ app.get("/api/tables", function(req, res) {
 // Displays waitlist
 app.get("/api/waitlist", function(req, res) {
   return res.json(waitlist);
+});
+
+app.delete("/api/tables", function(req, res) {
+  reservations = [];
+  waitlist = [];
+  return res.send(true);
 });
 
 // Create New Characters - takes in JSON input
