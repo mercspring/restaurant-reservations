@@ -97,12 +97,14 @@
                 email: $("#email").val().trim(),
                 userID: $("#userID").val().trim()
             };
-
+            // $.ajax
             // Question: What does this code do??
-            $.post("/api/reservations", newReservation)
+            $.post("/api/tables", newReservation)
                 .then(function(data) {
                     console.log("add.html", data);
-                    alert("Adding reservation...");
+                    if(data){
+                    alert("Adding reservation...");}
+                    else alert("Reservations full, adding to waitlist.")
                 });
         });
     </script>

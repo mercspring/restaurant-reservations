@@ -18,46 +18,33 @@ app.use(express.static("public"))
 // Reservations (DATA)
 // =============================================================
 var reservations = [
-  {
-    customerName: "sophia",
-    customerPhone: "9999999999",
-    customerEmail: "sophia@test.com",
-    customerID: 1
-  },
-  {
-    customerName: "mercury",
-    customerPhone: "1111111111",
-    customerEmail: "mercury@test.com",
-    customerID: 2
-  }
+  // {
+  //   customerName: "sophia",
+  //   customerPhone: "9999999999",
+  //   customerEmail: "sophia@test.com",
+  //   customerID: 1
+  // },
 ];
 
-var waitlist = [
-    {
-        customerName: "ann",
-        customerPhone: "55555555555",
-        customerEmail: "ann@test.com",
-        customerID: 3
-    }
-];
+var waitlist = [];
 
 // Routes
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-//   res.sendFile(path.join(__dirname, "view.html"));
-    res.send("Home Page")
+  res.sendFile(path.join(__dirname, "index.html"));
+    // res.send("Home Page")
 });
 
 app.get("/tables", function(req, res) {
-//   res.sendFile(path.join(__dirname, "add.html"));
-    res.send("Tables Page")
+  res.sendFile(path.join(__dirname, "tables.html"));
+    // res.send("Tables Page")
 });
 
 app.get("/form", function(req, res) {
-//   res.sendFile(path.join(__dirname, "add.html"));
-    res.send("Reservation Page")
+  res.sendFile(path.join(__dirname, "form.html"));
+    // res.send("Reservation Page")
 });
 
 // Displays all tables
@@ -80,9 +67,12 @@ app.post("/api/tables", function(req, res) {
 
   if(reservations.length < 5) {
     reservations.push(newTable);
+    return res.send(true);
   }
   else {
-      waitlist.push(newTable)
+      waitlist.push(newTable);
+      return res.send(false);
+
   }
   
   res.json(newTable);
