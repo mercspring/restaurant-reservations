@@ -113,7 +113,7 @@
                             <h3><strong>Phone: </strong> <span id="phoneNumber7"></span></h3>
                         </div>
                     </div>
-                    <div class="card-body" id="table8" s6yle="visibility: hidden;">
+                    <div class="card-body" id="table8" style="visibility: hidden;">
                         <h2>Waitlist 4</h2>
                         <div id="stats">
                             <h3><strong>ID: </strong> <span id="id8"></span></h3>
@@ -156,7 +156,8 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $.get("/api/reservations/", function() {
             for (let i = 0; i < reservations.length; i++) {
