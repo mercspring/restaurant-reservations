@@ -53,7 +53,7 @@
                 <div class="col-md-12">
                     <p>
                         <!-- Change the paths to where it's located in the api's object arrays -->
-                        <a href="*" id="clear"> Clear Reservations </a>
+                        <a href="." id="clear"> Clear Reservations </a>
                         <!-- </div> -->
                         |
                         <!-- Change the paths to where it's located in the api's object arrays -->
@@ -70,7 +70,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-        $.get("/api/reservations/", function () {
+        $.get("/api/tables/", function (reservations) {
             for (let i = 0; i < reservations.length; i++) {
                 let data = reservations[i];
                 const newCard = $("<div>");
@@ -79,20 +79,20 @@
                 const resStatCard = $("<div>");
                 resStatCard.addClass("stats");
 
-                const idHeader = $("<h3>");
-                idHeader.text(`ID: ${reservations[i].id}`);
-                resStatCard.append(idHeader)
-
                 const nameHeader = $("<h3>");
                 nameHeader.text(`ID: ${reservations[i].name}`);
                 resStatCard.append(nameHeader)
 
+                const idHeader = $("<h3>");
+                idHeader.text(`Phone Number: ${reservations[i].phoneNumber}`);
+                resStatCard.append(idHeader)
+
                 const emailHeader = $("<h3>");
-                emailHeader.text(`ID: ${reservations[i].email}`);
+                emailHeader.text(`Email: ${reservations[i].email}`);
                 resStatCard.append(emailHeader)
 
                 const phoneNumberHeader = $("<h3>");
-                phoneNumberHeader.text(`ID: ${reservations[i].id}`);
+                phoneNumberHeader.text(`ID: ${reservations[i].userID}`);
                 resStatCard.append(phoneNumberHeader)
                 
                 newCard.append(resStatCard);
@@ -100,7 +100,7 @@
             };
         });
 
-        $.get("/api/waitlist/", function () {
+        $.get("/api/waitlist/", function (waitlist) {
             for (let j = 0; j < waitlist.length; j++) {
                 const waitCard = $("<div>");
                 waitCard.addClass("card-body");
@@ -109,19 +109,19 @@
                 waitstatCard.addClass("stats");
 
                 const idHeader = $("<h3>");
-                idHeader.text(`ID: ${waitlist[j].id}`);
+                idHeader.text(`Phone Number: ${waitlist[j].phoneNumber}`);
                 waitstatCard.append(idHeader)
 
                 const nameHeader = $("<h3>");
-                nameHeader.text(`ID: ${waitlist[j].name}`);
+                nameHeader.text(`Name: ${waitlist[j].name}`);
                 waitstatCard.append(nameHeader)
 
                 const emailHeader = $("<h3>");
-                emailHeader.text(`ID: ${waitlist[j].email}`);
+                emailHeader.text(`Email: ${waitlist[j].email}`);
                 waitstatCard.append(emailHeader)
 
                 const phoneNumberHeader = $("<h3>");
-                phoneNumberHeader.text(`ID: ${waitlist[j].id}`);
+                phoneNumberHeader.text(`ID: ${waitlist[j].userID}`);
                 waitstatCard.append(phoneNumberHeader)
 
                 waitCard.append(waitstatCard);
