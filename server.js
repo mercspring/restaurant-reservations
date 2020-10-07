@@ -46,18 +46,18 @@ var waitlist = [
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-//   res.sendFile(path.join(__dirname, "view.html"));
-    res.send("Home Page")
+  res.sendFile(path.join(__dirname, "index.html"));
+    // res.send("Home Page")
 });
 
 app.get("/tables", function(req, res) {
-//   res.sendFile(path.join(__dirname, "add.html"));
-    res.send("Tables Page")
+  res.sendFile(path.join(__dirname, "tables.html"));
+    // res.send("Tables Page")
 });
 
 app.get("/form", function(req, res) {
-//   res.sendFile(path.join(__dirname, "add.html"));
-    res.send("Reservation Page")
+  res.sendFile(path.join(__dirname, "form.html"));
+    // res.send("Reservation Page")
 });
 
 // Displays all tables
