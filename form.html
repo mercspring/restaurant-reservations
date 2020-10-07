@@ -1,91 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Reservations</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
-  <div class="container">
-      <div class="jumbotron">
-        <h1 style="text-align: center;">Poke Man's</h1>
-        <h3 style="text-align: center;">Make Your Reservation</h3>
-        <hr>
-        <div class="row">
-          <div class="col-md-5"></div>
-        <a href="/tables"><button class="btn btn-primary btn-lg"><span class="fa fa-list-alt"></span> View Tables</button></a>
-        <a href="/"><button class="btn btn-lg"><span
+    <div class="container">
+        <div class="jumbotron">
+            <h1 style="text-align: center;">Poke Man's</h1>
+            <h3 style="text-align: center;">Make Your Reservation</h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <a href="/tables"><button class="btn btn-primary btn-lg"><span class="fa fa-list-alt"></span> View Tables</button></a>
+                <a href="/"><button class="btn btn-lg"><span
               class="fa fa-home"></span></button></a>
             </div>
-      </div>
-   
-    <div class="row">
-
-      <div class="col-12">
-
-        <div class="card">
-          <div class="card-header">
-            <h3><strong>Table Reservation</strong></h3>
-          </div>
-          <div class="card-body">
-            <form method="POST" role="form">
-
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-
-              <div class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" class="form-control" id="phoneNumber">
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" id="email">
-              </div>
-
-              <div class="form-group">
-                <label for="userID">Unique ID</label>
-                <input type="text" class="form-control" id="userID">
-              </div>
-
-            </form>
-            <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Make Reservation</button>
-            </div>
-          </div>
         </div>
 
-      </div>
-    </div>
-  </div>
+        <div class="row">
 
-  <footer>
-    <div class="container">
-      <div class="row">
-      <div class="col-md-12">
-        <p>
-        <!-- Change the paths to where it's located in the api's object arrays -->
-        <a href="/api/tables">Current Booked Tables API </a>
-      <!-- </div> -->
-       | 
-      <!-- <div class="col-md-3"> -->
-        <a href="/api/waitlist"> Current Wait List API</a>
-      </p>
-      </div>
-    </div>
-    </div>
-  </footer>
+            <div class="col-12">
 
-  <script type="/addform.js"></script>
+                <div class="card">
+                    <div class="card-header">
+                        <h3><strong>Table Reservation</strong></h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" role="form">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="text" class="form-control" id="phoneNumber">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userID">Unique ID</label>
+                                <input type="text" class="form-control" id="userID">
+                            </div>
+
+                        </form>
+                        <br>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span>Make Reservation</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <!-- Change the paths to where it's located in the api's object arrays -->
+                        <a href="/api/tables">Current Booked Tables API </a>
+                        <!-- </div> -->
+                        |
+                        <!-- <div class="col-md-3"> -->
+                        <a href="/api/waitlist"> Current Wait List API</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $("#add-btn").on("click", function(event) {
+            event.preventDefault();
+            var newReservation = {
+                name: $("#name").val().trim(),
+                phoneNumber: $("#phoneNumber").val().trim(),
+                email: $("#email").val().trim(),
+                userID: $("#userID").val().trim()
+            };
+
+            // Question: What does this code do??
+            $.post("/api/reservations", newReservation)
+                .then(function(data) {
+                    console.log("add.html", data);
+                    alert("Adding reservation...");
+                });
+        });
+    </script>
 
 </body>
+
 </html>

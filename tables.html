@@ -2,110 +2,105 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="jumbotron">
-      <h1 style="text-align: center;">Poke Man's</h1>
-      <h3 style="text-align: center;">The smallest Poke restaraunt with a Poke stop 5 tables total!</h3>
-      <hr>
-      <div class="row">
-        <div class="col-md-4"></div>
-      <a href="/form"><button class="btn btn-danger btn-lg"><span
-            class="fa fa-credit-card"></span>  Make Reservation</button></a>
-            <a href="/"><button class="btn btn-lg"><span
-              class="fa fa-home"></span></button></a>
-          </div>
-    </div>
-    <div class="row">
-
-      <div class="col-12">
-
-        <div class="card mb-4">
-          <div class="card-header">
-            <h3><strong>Character Search</strong></h3>
-          </div>
-          <div class="card-body">
-            <input type="text" id="character-search" class="form-control">
-            <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span
-                  class="fa fa-search"></span> Search
-                Your Feelings. You know it is true.</button>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h3><strong>Character Statistics</strong></h3>
-          </div>
-          <div class="card-body">
-            <h2 id="name">Yoda</h2>
-            <div id="stats">
-              <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
-              <h3><strong>Age:</strong> <span id="age">900</span></h3>
-              <h3><strong>Force Points:</strong> <span id="force-points">2000</span></h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
     <div class="container">
-      <div class="row">
-      <!-- <div class="col-md-6"> -->
-        <!-- Change the paths to where it's located in the api's object arrays -->
-        <a href="/api/tables">Current Booked Tables API </a>
-      <!-- </div> -->
-      <p> | </p>
-      <!-- <div class="col-md-3"> -->
-        <a href="/api/waitlist"> Current Wait List API</a>
-      <!-- </div> -->
+        <div class="jumbotron">
+            <h1 style="text-align: center;">Poke Man's</h1>
+            <h3 style="text-align: center;">The smallest Poke restaurant with a Poke stop 5 tables total!</h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <a href="/form"><button class="btn btn-danger btn-lg"><span
+            class="fa fa-credit-card"></span>  Make Reservation</button></a>
+                <a href="/"><button class="btn btn-lg"><span
+              class="fa fa-home"></span></button></a>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><strong>Current Reservations</strong></h3>
+                    </div>
+                    <div class="card-body">
+                        <h2 id="name">Yoda</h2>
+                        <div id="stats">
+                            <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
+                            <h3><strong>Age:</strong> <span id="age">900</span></h3>
+                            <h3><strong>Force Points:</strong> <span id="force-points">2000</span></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><strong>Current Waitlist</strong></h3>
+                    </div>
+                    <div class="card-body">
+                        <h2 id="name">Yoda</h2>
+                        <div id="stats">
+                            <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
+                            <h3><strong>Age:</strong> <span id="age">900</span></h3>
+                            <h3><strong>Force Points:</strong> <span id="force-points">2000</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-  </footer>
 
-  <script type="text/javascript">
-    $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-md-6"> -->
+                <!-- Change the paths to where it's located in the api's object arrays -->
+                <a href="/api/tables">Current Booked Tables API </a>
+                <!-- </div> -->
+                <p> | </p>
+                <!-- <div class="col-md-3"> -->
+                <a href="/api/waitlist"> Current Wait List API</a>
+                <!-- </div> -->
+            </div>
+        </div>
+    </footer>
 
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+    <script type="text/javascript">
+        $("#search-btn").on("click", function() {
+            var searchedCharacter = $("#character-search").val().trim();
 
-      $.get("/api/characters/" + searchedCharacter, function(data) {
-        console.log(data);
-        if (data) {
-          $("#stats").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
-        } else {
-          $("#name").text(
-            "The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
-        }
-      });
-    });
+            // Using a RegEx Pattern to remove spaces from searchedCharacter
+            // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+            searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
-  </script>
+            $.get("/api/characters/" + searchedCharacter, function(data) {
+                console.log(data);
+                if (data) {
+                    $("#stats").show();
+                    $("#name").text(data.name);
+                    $("#role").text(data.role);
+                    $("#age").text(data.age);
+                    $("#force-points").text(data.forcePoints);
+                } else {
+                    $("#name").text(
+                        "The force is not strong with this one. Your character was not found.");
+                    $("#stats").hide();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
